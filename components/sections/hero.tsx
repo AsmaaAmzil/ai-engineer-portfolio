@@ -24,7 +24,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-sm font-medium text-[#ec4899] bg-pink-100 border border-pink-200 rounded-full"
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-sm font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
           >
             <Sparkles className="w-4 h-4" />
             <span>Open to Research & Engineering Opportunities</span>
@@ -52,7 +52,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             AI Engineer & Computational Researcher specializing in{" "}
-            <span className="text-pink-500">Multi-Agent Systems</span>,{" "}
+            <span className="text-violet-500">Multi-Agent Systems</span>,{" "}
             <span className="text-purple-500">Deep Learning</span>, and{" "}
             <span className="text-sky-500">Interpretable AI</span>. Bridging research and engineering
             to build systems that understand, adapt, and deliver real-world impact.
@@ -67,7 +67,7 @@ export function HeroSection() {
           >
             <motion.a
               href="#projects"
-              className="group inline-flex items-center gap-2 px-6 py-3 text-base font-semibold bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-full hover:from-pink-500 hover:to-pink-600 transition-all shadow-lg shadow-pink-200"
+              className="group inline-flex items-center gap-2 px-6 py-3 text-base font-semibold bg-gradient-to-r from-violet-400 to-violet-500 text-white rounded-full hover:from-violet-500 hover:to-violet-600 transition-all shadow-md shadow-violet-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -76,7 +76,7 @@ export function HeroSection() {
             </motion.a>
             <motion.a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold bg-white text-pink-600 border-2 border-pink-200 rounded-full hover:bg-pink-50 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold bg-white text-violet-600 border border-violet-200 rounded-full hover:bg-violet-50 transition-all shadow-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -107,7 +107,7 @@ export function HeroSection() {
               href="https://github.com/AsmaaAmzil"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 text-pink-500 hover:text-pink-600 bg-pink-50 rounded-full border-2 border-pink-100 hover:border-pink-300 transition-all"
+              className="p-3 text-violet-500 hover:text-violet-600 bg-violet-50 rounded-full border border-violet-200 hover:border-violet-300 transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -172,7 +172,7 @@ export function HeroSection() {
             transition={{ duration: 1.5, repeat: Infinity }}
           >
             <span className="text-xs font-medium uppercase tracking-wider">Scroll</span>
-            <div className="w-px h-8 bg-gradient-to-b from-pink-300 to-transparent" />
+            <div className="w-px h-8 bg-gradient-to-b from-violet-300 to-transparent" />
           </motion.div>
         </motion.div>
       </div>

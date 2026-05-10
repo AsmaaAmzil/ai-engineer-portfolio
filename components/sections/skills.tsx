@@ -117,11 +117,11 @@ const getColorClasses = (color: string) => {
   switch (color) {
     case "pink":
       return {
-        bg: "bg-pink-100",
-        border: "border-pink-200",
-        text: "text-pink-600",
-        gradient: "from-pink-400 to-pink-300",
-        glow: "shadow-pink-200",
+        bg: "bg-violet-100",
+        border: "border-violet-200",
+        text: "text-violet-600",
+        gradient: "from-violet-400 to-violet-300",
+        glow: "shadow-violet-200",
       }
     case "lavender":
     case "violet":
@@ -167,11 +167,11 @@ const getColorClasses = (color: string) => {
       }
     default:
       return {
-        bg: "bg-pink-100",
-        border: "border-pink-200",
-        text: "text-pink-600",
-        gradient: "from-pink-400 to-pink-300",
-        glow: "shadow-pink-200",
+        bg: "bg-violet-100",
+        border: "border-violet-200",
+        text: "text-violet-600",
+        gradient: "from-violet-400 to-violet-300",
+        glow: "shadow-violet-200",
       }
   }
 }
@@ -191,7 +191,7 @@ export function SkillsSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-pink-600 bg-pink-100 border border-pink-200 rounded-full"
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -215,7 +215,7 @@ export function SkillsSection() {
             return (
               <motion.div
                 key={category.title}
-                className="group p-6 glass rounded-2xl hover:border-pink-300 transition-all duration-300"
+                className="group p-6 glass rounded-2xl hover:border-violet-300 transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + categoryIndex * 0.1 }}
@@ -278,7 +278,7 @@ export function SkillsSection() {
               ].map((tool, index) => (
                 <span
                   key={`${tool}-${index}`}
-                  className="px-4 py-2 text-sm font-medium text-pink-600 bg-pink-50 border border-pink-200 rounded-lg whitespace-nowrap hover:text-pink-700 hover:border-pink-300 transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-violet-600 bg-violet-50 border border-violet-200 rounded-lg whitespace-nowrap hover:text-violet-700 hover:border-violet-300 transition-colors"
                 >
                   {tool}
                 </span>

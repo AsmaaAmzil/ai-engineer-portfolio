@@ -53,7 +53,7 @@ export function AboutSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-pink-600 bg-pink-100 border border-pink-200 rounded-full"
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -90,14 +90,14 @@ export function AboutSection() {
                   to production deployment.
                 </p>
                 <p>
-                  My research focuses on <span className="text-pink-500 font-medium">computational multi-agent systems</span> and 
+                  My research focuses on <span className="text-violet-500 font-medium">computational multi-agent systems</span> and 
                   <span className="text-purple-500 font-medium"> behavioural dynamics</span>, exploring how heterogeneous actors 
                   interact to produce emergent phenomena. This work spans healthcare, energy systems, and 
                   information consumption patterns.
                 </p>
                 <p>
                   I believe in building AI that&apos;s not just powerful, but <span className="text-sky-500 font-medium">interpretable</span> and 
-                  <span className="text-pink-500 font-medium"> actionable</span>—systems that researchers, policymakers, and 
+                  <span className="text-violet-500 font-medium"> actionable</span>—systems that researchers, policymakers, and 
                   engineers can trust and understand.
                 </p>
               </div>
@@ -107,8 +107,8 @@ export function AboutSection() {
             <div className="space-y-3">
               <div className="p-4 glass rounded-xl">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-pink-100 border border-pink-200 flex items-center justify-center shrink-0">
-                    <span className="text-pink-600 font-bold text-sm">M</span>
+                  <div className="w-10 h-10 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0">
+                    <span className="text-violet-600 font-bold text-sm">M</span>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Master&apos;s in Artificial Intelligence</h4>
@@ -140,16 +140,16 @@ export function AboutSection() {
             {highlights.map((item, index) => (
               <motion.div
                 key={item.title}
-                className="group p-5 glass rounded-2xl hover:border-pink-300 transition-all duration-300"
+                className="group p-5 glass rounded-2xl hover:border-violet-300 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 + index * 0.1 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-pink-100 to-purple-100 border border-pink-200 flex items-center justify-center group-hover:border-pink-400 transition-colors">
-                  <item.icon className="w-6 h-6 text-pink-500" />
+                <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-violet-100 to-purple-100 border border-violet-200 flex items-center justify-center group-hover:border-violet-400 transition-colors">
+                  <item.icon className="w-6 h-6 text-violet-500" />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-pink-600 group-hover:text-pink-700 transition-colors">
+                <h4 className="text-lg font-semibold mb-2 text-violet-600 group-hover:text-violet-700 transition-colors">
                   {item.title}
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">

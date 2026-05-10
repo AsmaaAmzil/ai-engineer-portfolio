@@ -68,7 +68,7 @@ export function Navigation() {
                 href={item.href}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors ${
                   activeSection === item.href.slice(1)
-                    ? "text-pink-500"
+                    ? "text-violet-500"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
                 initial={{ opacity: 0, y: -20 }}
@@ -91,7 +91,7 @@ export function Navigation() {
           {/* CTA Button */}
           <motion.a
             href="#contact"
-            className="hidden md:block px-5 py-2.5 text-sm font-medium bg-pink-100 text-pink-600 border border-pink-300 rounded-full hover:bg-pink-200 hover:border-pink-400 transition-all"
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-violet-400 to-violet-500 text-white rounded-full hover:from-violet-500 hover:to-violet-600 transition-all shadow-md"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6 }}
