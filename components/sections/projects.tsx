@@ -334,12 +334,16 @@ export function ProjectsSection() {
                     )}
                   </div>
 
-                  {/* Impact */}
+                  {/* Request Access */}
                   <div className="pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full ${colors.text.replace('text', 'bg')}`} />
-                      <span className="text-xs text-muted-foreground">{project.impact}</span>
-                    </div>
+                    <motion.button
+                      onClick={() => handleRequestClick(project.title)}
+                      className="flex items-center gap-2 text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors"
+                      whileHover={{ x: 3 }}
+                    >
+                      <Lock className="w-4 h-4" />
+                      Request Access
+                    </motion.button>
                   </div>
                 </div>
               </motion.div>
