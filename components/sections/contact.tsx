@@ -68,28 +68,28 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden" ref={ref}>
+    <section id="contact" className="relative py-20 md:py-24 overflow-hidden" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-cyan bg-cyan/10 border border-cyan/20 rounded-full"
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
             Get In Touch
           </motion.span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             <span className="text-foreground">Let&apos;s </span>
             <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Interested in collaboration, research opportunities, or just want to say hello? 
             I&apos;d love to hear from you.
           </p>
@@ -109,18 +109,18 @@ export function ContactSection() {
                 <motion.a
                   key={info.label}
                   href={info.href}
-                  className="group flex items-center gap-4 p-4 glass rounded-xl hover:border-cyan/30 transition-all"
+                  className="group flex items-center gap-4 p-4 glass rounded-xl hover:border-violet-300 transition-all"
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.4 + index * 0.1 }}
                   whileHover={{ x: 4 }}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-cyan/10 border border-cyan/20 flex items-center justify-center shrink-0 group-hover:border-cyan/40 transition-colors">
-                    <info.icon className="w-5 h-5 text-cyan" />
+                  <div className="w-12 h-12 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0 group-hover:border-violet-400 transition-colors">
+                    <info.icon className="w-5 h-5 text-violet-600" />
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">{info.label}</div>
-                    <div className="text-foreground font-medium group-hover:text-cyan transition-colors">
+                    <div className="text-foreground font-medium group-hover:text-violet-600 transition-colors">
                       {info.value}
                     </div>
                   </div>
@@ -143,10 +143,10 @@ export function ContactSection() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-4 py-3 glass rounded-xl hover:border-cyan/30 transition-all"
+                    className="flex items-center gap-3 px-4 py-3 glass rounded-xl hover:border-violet-300 transition-all"
                     whileHover={{ y: -2 }}
                   >
-                    <social.icon className="w-5 h-5 text-cyan" />
+                    <social.icon className="w-5 h-5 text-violet-600" />
                     <div className="hidden sm:block">
                       <div className="text-xs text-muted-foreground">{social.label}</div>
                       <div className="text-sm text-foreground">{social.username}</div>
@@ -195,7 +195,7 @@ export function ContactSection() {
                     required
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all text-foreground placeholder:text-muted-foreground"
+                    className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-violet-300 focus:ring-1 focus:ring-violet-300 transition-all text-foreground placeholder:text-muted-foreground"
                     placeholder="Your name"
                   />
                 </div>
@@ -209,7 +209,7 @@ export function ContactSection() {
                     required
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all text-foreground placeholder:text-muted-foreground"
+                    className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-violet-300 focus:ring-1 focus:ring-violet-300 transition-all text-foreground placeholder:text-muted-foreground"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -225,7 +225,7 @@ export function ContactSection() {
                   required
                   value={formState.subject}
                   onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                  className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all text-foreground placeholder:text-muted-foreground"
+                  className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-violet-300 focus:ring-1 focus:ring-violet-300 transition-all text-foreground placeholder:text-muted-foreground"
                   placeholder="What's this about?"
                 />
               </div>
@@ -240,7 +240,7 @@ export function ContactSection() {
                   rows={5}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all resize-none text-foreground placeholder:text-muted-foreground"
+                  className="w-full px-4 py-3 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-violet-300 focus:ring-1 focus:ring-violet-300 transition-all resize-none text-foreground placeholder:text-muted-foreground"
                   placeholder="Your message..."
                 />
               </div>
@@ -251,7 +251,7 @@ export function ContactSection() {
                 className={`w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl transition-all ${
                   isSubmitted
                     ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
-                    : "bg-cyan text-primary-foreground hover:bg-cyan-glow glow-cyan"
+                    : "bg-violet-500 text-white hover:bg-violet-600 shadow-md"
                 }`}
                 whileHover={!isSubmitting && !isSubmitted ? { scale: 1.02 } : {}}
                 whileTap={!isSubmitting && !isSubmitted ? { scale: 0.98 } : {}}

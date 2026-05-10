@@ -93,11 +93,11 @@ const getColorClasses = (color: string) => {
   switch (color) {
     case "cyan":
       return {
-        bg: "bg-cyan/10",
-        border: "border-cyan/20",
-        hoverBorder: "hover:border-cyan/40",
-        text: "text-cyan",
-        glow: "group-hover:shadow-cyan/10",
+        bg: "bg-violet-100",
+        border: "border-violet-200",
+        hoverBorder: "hover:border-violet-400",
+        text: "text-violet-600",
+        glow: "group-hover:shadow-violet-200",
       }
     case "purple":
       return {
@@ -109,19 +109,19 @@ const getColorClasses = (color: string) => {
       }
     case "blue":
       return {
-        bg: "bg-blue/10",
-        border: "border-blue/20",
-        hoverBorder: "hover:border-blue/40",
-        text: "text-blue",
-        glow: "group-hover:shadow-blue/10",
+        bg: "bg-purple-100",
+        border: "border-purple-200",
+        hoverBorder: "hover:border-purple-400",
+        text: "text-purple-600",
+        glow: "group-hover:shadow-purple-200",
       }
     default:
       return {
-        bg: "bg-cyan/10",
-        border: "border-cyan/20",
-        hoverBorder: "hover:border-cyan/40",
-        text: "text-cyan",
-        glow: "group-hover:shadow-cyan/10",
+        bg: "bg-violet-100",
+        border: "border-violet-200",
+        hoverBorder: "hover:border-violet-400",
+        text: "text-violet-600",
+        glow: "group-hover:shadow-violet-200",
       }
   }
 }
@@ -135,28 +135,28 @@ export function ProjectsSection() {
   const otherProjects = projects.filter(p => !p.featured)
 
   return (
-    <section id="projects" className="relative py-32 overflow-hidden" ref={ref}>
+    <section id="projects" className="relative py-20 md:py-24 overflow-hidden" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-cyan bg-cyan/10 border border-cyan/20 rounded-full"
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
             Featured Work
           </motion.span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             <span className="text-foreground">Projects & </span>
             <span className="gradient-text">Research</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A selection of AI systems, research projects, and engineering work spanning 
             healthcare, energy, and computational modeling.
           </p>
@@ -170,20 +170,20 @@ export function ProjectsSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
           >
-            <div className="group relative p-8 glass rounded-3xl border border-cyan/20 hover:border-cyan/40 transition-all duration-500 overflow-hidden">
+            <div className="group relative p-6 glass rounded-2xl border border-violet-200 hover:border-violet-400 transition-all duration-500 overflow-hidden">
               {/* Background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 via-transparent to-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-100/50 via-transparent to-purple-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative grid lg:grid-cols-2 gap-8 items-center">
                 {/* Content */}
                 <div className="space-y-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-cyan/10 border border-cyan/20 flex items-center justify-center">
-                      <featuredProject.icon className="w-6 h-6 text-cyan" />
+                    <div className="w-12 h-12 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center">
+                      <featuredProject.icon className="w-6 h-6 text-violet-600" />
                     </div>
                     <div>
-                      <span className="text-xs font-medium text-cyan uppercase tracking-wider">Featured Project</span>
-                      <h3 className="text-2xl font-bold text-foreground">{featuredProject.title}</h3>
+                      <span className="text-xs font-medium text-violet-600 uppercase tracking-wider">Featured Project</span>
+                      <h3 className="text-xl font-bold text-foreground">{featuredProject.title}</h3>
                     </div>
                   </div>
                   
@@ -195,7 +195,7 @@ export function ProjectsSection() {
                     {featuredProject.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-xs font-medium text-cyan bg-cyan/10 border border-cyan/20 rounded-full"
+                        className="px-3 py-1 text-xs font-medium text-violet-600 bg-violet-50 border border-violet-200 rounded-full"
                       >
                         {tag}
                       </span>
@@ -205,7 +205,7 @@ export function ProjectsSection() {
                   <div className="flex items-center gap-4 pt-4">
                     <motion.a
                       href={featuredProject.github}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-cyan text-primary-foreground rounded-full hover:bg-cyan-glow transition-all"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-violet-500 text-white rounded-full hover:bg-violet-600 transition-all"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -227,18 +227,18 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Visual */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-cyan/10 via-purple/5 to-blue/10 border border-border/50">
+                <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-violet-100 via-purple-50 to-violet-50 border border-violet-100">
                   <div className="absolute inset-0 grid-bg opacity-50" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <motion.div
-                        className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-cyan/10 border border-cyan/20 flex items-center justify-center"
+                        className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-violet-100 border border-violet-200 flex items-center justify-center"
                         animate={{ rotate: [0, 5, -5, 0] }}
                         transition={{ duration: 4, repeat: Infinity }}
                       >
-                        <Brain className="w-10 h-10 text-cyan" />
+                        <Brain className="w-10 h-10 text-violet-500" />
                       </motion.div>
-                      <div className="text-3xl font-bold gradient-text">{featuredProject.impact}</div>
+                      <div className="text-2xl font-bold gradient-text">{featuredProject.impact}</div>
                       <div className="text-sm text-muted-foreground mt-1">Key Achievement</div>
                     </div>
                   </div>
@@ -283,7 +283,7 @@ export function ProjectsSection() {
                     <span className={`text-xs font-medium ${colors.text} uppercase tracking-wider`}>
                       {project.subtitle}
                     </span>
-                    <h3 className="text-lg font-semibold text-foreground mt-1 group-hover:text-cyan transition-colors">
+                    <h3 className="text-lg font-semibold text-foreground mt-1 group-hover:text-violet-600 transition-colors">
                       {project.title}
                     </h3>
                   </div>
@@ -333,7 +333,7 @@ export function ProjectsSection() {
             href="https://github.com/AsmaaAmzil"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-muted-foreground hover:text-cyan transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-muted-foreground hover:text-violet-600 transition-colors"
             whileHover={{ x: 5 }}
           >
             View all projects on GitHub

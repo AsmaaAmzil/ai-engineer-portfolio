@@ -135,35 +135,35 @@ const getColorClasses = (color: string) => {
       }
     case "sky":
       return {
-        bg: "bg-sky-100",
-        border: "border-sky-200",
-        text: "text-sky-600",
-        gradient: "from-sky-400 to-sky-300",
-        glow: "shadow-sky-200",
+        bg: "bg-violet-100",
+        border: "border-violet-200",
+        text: "text-violet-600",
+        gradient: "from-violet-400 to-violet-300",
+        glow: "shadow-violet-200",
       }
     case "rose":
       return {
-        bg: "bg-rose-100",
-        border: "border-rose-200",
-        text: "text-rose-600",
-        gradient: "from-rose-400 to-rose-300",
-        glow: "shadow-rose-200",
+        bg: "bg-purple-100",
+        border: "border-purple-200",
+        text: "text-purple-600",
+        gradient: "from-purple-400 to-purple-300",
+        glow: "shadow-purple-200",
       }
     case "mint":
       return {
-        bg: "bg-emerald-100",
-        border: "border-emerald-200",
-        text: "text-emerald-600",
-        gradient: "from-emerald-400 to-emerald-300",
-        glow: "shadow-emerald-200",
+        bg: "bg-violet-100",
+        border: "border-violet-200",
+        text: "text-violet-600",
+        gradient: "from-violet-400 to-violet-300",
+        glow: "shadow-violet-200",
       }
     case "peach":
       return {
-        bg: "bg-orange-100",
-        border: "border-orange-200",
-        text: "text-orange-600",
-        gradient: "from-orange-400 to-orange-300",
-        glow: "shadow-orange-200",
+        bg: "bg-purple-100",
+        border: "border-purple-200",
+        text: "text-purple-600",
+        gradient: "from-purple-400 to-purple-300",
+        glow: "shadow-purple-200",
       }
     default:
       return {
@@ -181,11 +181,11 @@ export function SkillsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="skills" className="relative py-32 overflow-hidden" ref={ref}>
+    <section id="skills" className="relative py-20 md:py-24 overflow-hidden" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -198,11 +198,11 @@ export function SkillsSection() {
           >
             Technical Arsenal
           </motion.span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             <span className="text-foreground font-[family-name:var(--font-poppins)]">Skills & </span>
             <span className="gradient-text font-[family-name:var(--font-script)] italic">Technologies</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A comprehensive toolkit spanning machine learning, computational modeling, 
             and full-stack development for building production-ready AI systems.
           </p>
@@ -215,7 +215,7 @@ export function SkillsSection() {
             return (
               <motion.div
                 key={category.title}
-                className="group p-6 glass rounded-2xl hover:border-violet-300 transition-all duration-300"
+                className="group p-5 glass rounded-xl hover:border-violet-300 transition-all duration-300 hover:shadow-md"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + categoryIndex * 0.1 }}
@@ -260,7 +260,7 @@ export function SkillsSection() {
 
         {/* Tools Marquee */}
         <motion.div
-          className="mt-20"
+          className="mt-16"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 1 }}

@@ -43,11 +43,11 @@ export function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden" ref={ref}>
+    <section id="about" className="relative py-20 md:py-24 overflow-hidden" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -60,12 +60,12 @@ export function AboutSection() {
           >
             About Me
           </motion.span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             <span className="text-foreground font-[family-name:var(--font-poppins)]">Crafting </span>
             <span className="gradient-text font-[family-name:var(--font-script)] italic">AI Solutions</span>
             <span className="text-foreground font-[family-name:var(--font-poppins)]"> That Matter</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Master&apos;s student in Artificial Intelligence with a passion for understanding how 
             individual-level decisions give rise to system-level outcomes. I build interpretable, 
             policy-relevant models that connect computation, behaviour, and real-world impact.
@@ -81,9 +81,9 @@ export function AboutSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="p-6 glass rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">My Journey</h3>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="p-5 glass rounded-xl">
+              <h3 className="text-lg font-semibold mb-3 text-foreground">My Journey</h3>
+              <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
                 <p>
                   Currently pursuing my Master&apos;s in AI at Cadi Ayyad University, I&apos;ve developed 
                   expertise across the full spectrum of intelligent systems—from theoretical foundations 
@@ -91,12 +91,12 @@ export function AboutSection() {
                 </p>
                 <p>
                   My research focuses on <span className="text-violet-500 font-medium">computational multi-agent systems</span> and 
-                  <span className="text-purple-500 font-medium"> behavioural dynamics</span>, exploring how heterogeneous actors 
+                  <span className="text-violet-500 font-medium"> behavioural dynamics</span>, exploring how heterogeneous actors 
                   interact to produce emergent phenomena. This work spans healthcare, energy systems, and 
                   information consumption patterns.
                 </p>
                 <p>
-                  I believe in building AI that&apos;s not just powerful, but <span className="text-sky-500 font-medium">interpretable</span> and 
+                  I believe in building AI that&apos;s not just powerful, but <span className="text-violet-500 font-medium">interpretable</span> and 
                   <span className="text-violet-500 font-medium"> actionable</span>—systems that researchers, policymakers, and 
                   engineers can trust and understand.
                 </p>
@@ -105,9 +105,9 @@ export function AboutSection() {
 
             {/* Education Cards */}
             <div className="space-y-3">
-              <div className="p-4 glass rounded-xl">
+              <div className="p-3 glass rounded-lg">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0">
                     <span className="text-violet-600 font-bold text-sm">M</span>
                   </div>
                   <div>
@@ -116,9 +116,9 @@ export function AboutSection() {
                   </div>
                 </div>
               </div>
-              <div className="p-4 glass rounded-xl">
+              <div className="p-3 glass rounded-lg">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-purple-100 border border-purple-200 flex items-center justify-center shrink-0">
                     <span className="text-purple-600 font-bold text-sm">B</span>
                   </div>
                   <div>
@@ -140,19 +140,19 @@ export function AboutSection() {
             {highlights.map((item, index) => (
               <motion.div
                 key={item.title}
-                className="group p-5 glass rounded-2xl hover:border-violet-300 transition-all duration-300"
+                className="p-4 glass rounded-xl hover:border-violet-300 transition-all duration-300 hover:shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 + index * 0.1 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-violet-100 to-purple-100 border border-violet-200 flex items-center justify-center group-hover:border-violet-400 transition-colors">
+                <div className="w-10 h-10 mb-3 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 border border-violet-200 flex items-center justify-center group-hover:border-violet-400 transition-colors">
                   <item.icon className="w-6 h-6 text-violet-500" />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-violet-600 group-hover:text-violet-700 transition-colors">
+                <h4 className="text-base font-semibold mb-1.5 text-violet-600 group-hover:text-violet-700 transition-colors">
                   {item.title}
                 </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                   {item.description}
                 </p>
               </motion.div>
@@ -162,7 +162,7 @@ export function AboutSection() {
 
         {/* Stats Bar */}
         <motion.div
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -175,10 +175,10 @@ export function AboutSection() {
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="p-6 text-center glass rounded-xl"
+              className="p-4 text-center glass rounded-lg"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">{stat.value}</div>
+              <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">{stat.value}</div>
               <div className="text-sm text-muted-foreground">{stat.label}</div>
             </motion.div>
           ))}

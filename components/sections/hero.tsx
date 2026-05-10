@@ -54,7 +54,7 @@ export function HeroSection() {
             AI Engineer & Computational Researcher specializing in{" "}
             <span className="text-violet-500">Multi-Agent Systems</span>,{" "}
             <span className="text-purple-500">Deep Learning</span>, and{" "}
-            <span className="text-sky-500">Interpretable AI</span>. Bridging research and engineering
+            <span className="text-violet-500">Interpretable AI</span>. Bridging research and engineering
             to build systems that understand, adapt, and deliver real-world impact.
           </motion.p>
 
@@ -125,7 +125,7 @@ export function HeroSection() {
             </motion.a>
             <motion.a
               href="mailto:asmaaamzil19@gmail.com"
-              className="p-3 text-sky-500 hover:text-sky-600 bg-sky-50 rounded-full border-2 border-sky-100 hover:border-sky-300 transition-all"
+              className="p-3 text-violet-500 hover:text-violet-600 bg-violet-50 rounded-full border border-violet-200 hover:border-violet-300 transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -149,8 +149,8 @@ export function HeroSection() {
                 transition={{ delay: 1 + index * 0.1 }}
                 whileHover={{
                   scale: 1.05,
-                  borderColor: "rgba(249, 168, 212, 0.5)",
-                  color: "#ec4899",
+                  borderColor: "rgba(167, 139, 250, 0.5)",
+                  color: "#8b5cf6",
                 }}
               >
                 {badge}

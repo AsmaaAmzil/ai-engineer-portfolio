@@ -77,28 +77,28 @@ export function ExperienceSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="experience" className="relative py-32 overflow-hidden" ref={ref}>
+    <section id="experience" className="relative py-20 md:py-24 overflow-hidden" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-cyan bg-cyan/10 border border-cyan/20 rounded-full"
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
             Career Journey
           </motion.span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             <span className="text-foreground">Experience & </span>
             <span className="gradient-text">Education</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A timeline of research internships, professional experience, and academic milestones 
             shaping my journey in AI and computational systems.
           </p>
@@ -107,12 +107,12 @@ export function ExperienceSection() {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan via-purple to-blue opacity-30" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-violet-300 via-purple-300 to-violet-400 opacity-30" />
 
           {experiences.map((exp, index) => {
             const isLeft = index % 2 === 0
             const IconComponent = exp.type === "work" ? Briefcase : GraduationCap
-            const colorClass = exp.type === "work" ? "cyan" : "purple"
+            const colorClass = exp.type === "work" ? "violet" : "purple"
 
             return (
               <motion.div
@@ -139,27 +139,27 @@ export function ExperienceSection() {
                 {/* Content Card */}
                 <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-8" : "md:pl-8"}`}>
                   <motion.div
-                    className="group p-6 glass rounded-2xl hover:border-cyan/30 transition-all duration-300"
+                    className="group p-5 glass rounded-xl hover:border-violet-300 transition-all duration-300 hover:shadow-md"
                     whileHover={{ y: -4 }}
                   >
                     {/* Header */}
                     <div className="flex items-start gap-4 mb-4">
                       <div className={`w-10 h-10 rounded-xl shrink-0 ${
-                        colorClass === "cyan" ? "bg-cyan/10 border-cyan/20" : "bg-purple/10 border-purple/20"
+                        colorClass === "violet" ? "bg-violet-100 border-violet-200" : "bg-purple-100 border-purple-200"
                       } border flex items-center justify-center`}>
                         <IconComponent className={`w-5 h-5 ${
-                          colorClass === "cyan" ? "text-cyan" : "text-purple"
+                          colorClass === "violet" ? "text-violet-600" : "text-purple-600"
                         }`} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className={`text-xs font-medium uppercase tracking-wider ${
-                            colorClass === "cyan" ? "text-cyan" : "text-purple"
+                            colorClass === "violet" ? "text-violet-600" : "text-purple-600"
                           }`}>
                             {exp.type === "work" ? "Experience" : "Education"}
                           </span>
                         </div>
-                        <h3 className="text-lg font-semibold text-foreground mt-1 group-hover:text-cyan transition-colors">
+                        <h3 className="text-lg font-semibold text-foreground mt-1 group-hover:text-violet-600 transition-colors">
                           {exp.title}
                         </h3>
                         <p className="text-sm text-muted-foreground mt-0.5">{exp.organization}</p>
