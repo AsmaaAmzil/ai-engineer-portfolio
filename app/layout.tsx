@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Poppins, JetBrains_Mono, Dancing_Script } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ 
+const poppins = Poppins({ 
   subsets: ["latin"],
-  variable: '--font-inter'
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins'
+})
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-script'
 })
 
 const jetbrainsMono = JetBrains_Mono({ 
@@ -49,8 +56,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-background">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+    <html lang="en" className="bg-background">
+      <body className={`${poppins.variable} ${dancingScript.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

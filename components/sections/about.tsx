@@ -53,7 +53,7 @@ export function AboutSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-cyan bg-cyan/10 border border-cyan/20 rounded-full"
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-pink-600 bg-pink-100 border border-pink-200 rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -61,9 +61,9 @@ export function AboutSection() {
             About Me
           </motion.span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-foreground">Crafting </span>
-            <span className="gradient-text">AI Solutions</span>
-            <span className="text-foreground"> That Matter</span>
+            <span className="text-foreground font-[family-name:var(--font-poppins)]">Crafting </span>
+            <span className="gradient-text font-[family-name:var(--font-script)] italic">AI Solutions</span>
+            <span className="text-foreground font-[family-name:var(--font-poppins)]"> That Matter</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Master&apos;s student in Artificial Intelligence with a passion for understanding how 
@@ -90,14 +90,14 @@ export function AboutSection() {
                   to production deployment.
                 </p>
                 <p>
-                  My research focuses on <span className="text-cyan">computational multi-agent systems</span> and 
-                  <span className="text-purple"> behavioural dynamics</span>, exploring how heterogeneous actors 
+                  My research focuses on <span className="text-pink-500 font-medium">computational multi-agent systems</span> and 
+                  <span className="text-purple-500 font-medium"> behavioural dynamics</span>, exploring how heterogeneous actors 
                   interact to produce emergent phenomena. This work spans healthcare, energy systems, and 
                   information consumption patterns.
                 </p>
                 <p>
-                  I believe in building AI that&apos;s not just powerful, but <span className="text-cyan">interpretable</span> and 
-                  <span className="text-purple"> actionable</span>—systems that researchers, policymakers, and 
+                  I believe in building AI that&apos;s not just powerful, but <span className="text-sky-500 font-medium">interpretable</span> and 
+                  <span className="text-pink-500 font-medium"> actionable</span>—systems that researchers, policymakers, and 
                   engineers can trust and understand.
                 </p>
               </div>
@@ -107,8 +107,8 @@ export function AboutSection() {
             <div className="space-y-3">
               <div className="p-4 glass rounded-xl">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-cyan/10 border border-cyan/20 flex items-center justify-center shrink-0">
-                    <span className="text-cyan font-bold text-sm">M</span>
+                  <div className="w-10 h-10 rounded-xl bg-pink-100 border border-pink-200 flex items-center justify-center shrink-0">
+                    <span className="text-pink-600 font-bold text-sm">M</span>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Master&apos;s in Artificial Intelligence</h4>
@@ -118,8 +118,8 @@ export function AboutSection() {
               </div>
               <div className="p-4 glass rounded-xl">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-purple/10 border border-purple/20 flex items-center justify-center shrink-0">
-                    <span className="text-purple font-bold text-sm">B</span>
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center shrink-0">
+                    <span className="text-purple-600 font-bold text-sm">B</span>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Bachelor&apos;s in Computer Science</h4>
@@ -140,16 +140,16 @@ export function AboutSection() {
             {highlights.map((item, index) => (
               <motion.div
                 key={item.title}
-                className="group p-5 glass rounded-xl hover:border-cyan/30 transition-all duration-300"
+                className="group p-5 glass rounded-2xl hover:border-pink-300 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 + index * 0.1 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-cyan/10 to-purple/10 border border-cyan/20 flex items-center justify-center group-hover:border-cyan/40 transition-colors">
-                  <item.icon className="w-6 h-6 text-cyan" />
+                <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-pink-100 to-purple-100 border border-pink-200 flex items-center justify-center group-hover:border-pink-400 transition-colors">
+                  <item.icon className="w-6 h-6 text-pink-500" />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-foreground group-hover:text-cyan transition-colors">
+                <h4 className="text-lg font-semibold mb-2 text-pink-600 group-hover:text-pink-700 transition-colors">
                   {item.title}
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">

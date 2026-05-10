@@ -18,7 +18,7 @@ const skillCategories = [
   {
     title: "AI / Machine Learning",
     icon: Brain,
-    color: "cyan",
+    color: "pink",
     skills: [
       { name: "Deep Learning", level: 95 },
       { name: "Reinforcement Learning", level: 90 },
@@ -30,7 +30,7 @@ const skillCategories = [
   {
     title: "NLP & Transformers",
     icon: FileCode,
-    color: "purple",
+    color: "lavender",
     skills: [
       { name: "Transformers / BERT", level: 92 },
       { name: "Clinical NER", level: 88 },
@@ -42,7 +42,7 @@ const skillCategories = [
   {
     title: "Multi-Agent Systems",
     icon: Network,
-    color: "blue",
+    color: "sky",
     skills: [
       { name: "Agent-Based Modeling", level: 93 },
       { name: "Emergent Behavior Analysis", level: 88 },
@@ -54,7 +54,7 @@ const skillCategories = [
   {
     title: "Computer Vision",
     icon: Layers,
-    color: "cyan",
+    color: "rose",
     skills: [
       { name: "CNNs / EfficientNet", level: 90 },
       { name: "Image Classification", level: 92 },
@@ -66,7 +66,7 @@ const skillCategories = [
   {
     title: "Frameworks & Tools",
     icon: Code2,
-    color: "purple",
+    color: "violet",
     skills: [
       { name: "PyTorch", level: 95 },
       { name: "TensorFlow", level: 88 },
@@ -78,7 +78,7 @@ const skillCategories = [
   {
     title: "MLOps & Cloud",
     icon: Cloud,
-    color: "blue",
+    color: "mint",
     skills: [
       { name: "Docker", level: 88 },
       { name: "DVC", level: 85 },
@@ -90,7 +90,7 @@ const skillCategories = [
   {
     title: "Programming",
     icon: Cpu,
-    color: "cyan",
+    color: "peach",
     skills: [
       { name: "Python", level: 98 },
       { name: "C++", level: 75 },
@@ -102,7 +102,7 @@ const skillCategories = [
   {
     title: "Research & Data",
     icon: FlaskConical,
-    color: "purple",
+    color: "orchid",
     skills: [
       { name: "Experimental Design", level: 90 },
       { name: "Statistical Analysis", level: 88 },
@@ -115,37 +115,63 @@ const skillCategories = [
 
 const getColorClasses = (color: string) => {
   switch (color) {
-    case "cyan":
+    case "pink":
       return {
-        bg: "bg-cyan/10",
-        border: "border-cyan/20",
-        text: "text-cyan",
-        gradient: "from-cyan/80 to-cyan/40",
-        glow: "shadow-cyan/20",
+        bg: "bg-pink-100",
+        border: "border-pink-200",
+        text: "text-pink-600",
+        gradient: "from-pink-400 to-pink-300",
+        glow: "shadow-pink-200",
       }
-    case "purple":
+    case "lavender":
+    case "violet":
+    case "orchid":
       return {
-        bg: "bg-purple/10",
-        border: "border-purple/20",
-        text: "text-purple",
-        gradient: "from-purple/80 to-purple/40",
-        glow: "shadow-purple/20",
+        bg: "bg-purple-100",
+        border: "border-purple-200",
+        text: "text-purple-600",
+        gradient: "from-purple-400 to-purple-300",
+        glow: "shadow-purple-200",
       }
-    case "blue":
+    case "sky":
       return {
-        bg: "bg-blue/10",
-        border: "border-blue/20",
-        text: "text-blue",
-        gradient: "from-blue/80 to-blue/40",
-        glow: "shadow-blue/20",
+        bg: "bg-sky-100",
+        border: "border-sky-200",
+        text: "text-sky-600",
+        gradient: "from-sky-400 to-sky-300",
+        glow: "shadow-sky-200",
+      }
+    case "rose":
+      return {
+        bg: "bg-rose-100",
+        border: "border-rose-200",
+        text: "text-rose-600",
+        gradient: "from-rose-400 to-rose-300",
+        glow: "shadow-rose-200",
+      }
+    case "mint":
+      return {
+        bg: "bg-emerald-100",
+        border: "border-emerald-200",
+        text: "text-emerald-600",
+        gradient: "from-emerald-400 to-emerald-300",
+        glow: "shadow-emerald-200",
+      }
+    case "peach":
+      return {
+        bg: "bg-orange-100",
+        border: "border-orange-200",
+        text: "text-orange-600",
+        gradient: "from-orange-400 to-orange-300",
+        glow: "shadow-orange-200",
       }
     default:
       return {
-        bg: "bg-cyan/10",
-        border: "border-cyan/20",
-        text: "text-cyan",
-        gradient: "from-cyan/80 to-cyan/40",
-        glow: "shadow-cyan/20",
+        bg: "bg-pink-100",
+        border: "border-pink-200",
+        text: "text-pink-600",
+        gradient: "from-pink-400 to-pink-300",
+        glow: "shadow-pink-200",
       }
   }
 }
@@ -165,7 +191,7 @@ export function SkillsSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-cyan bg-cyan/10 border border-cyan/20 rounded-full"
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-pink-600 bg-pink-100 border border-pink-200 rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -173,8 +199,8 @@ export function SkillsSection() {
             Technical Arsenal
           </motion.span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-foreground">Skills & </span>
-            <span className="gradient-text">Technologies</span>
+            <span className="text-foreground font-[family-name:var(--font-poppins)]">Skills & </span>
+            <span className="gradient-text font-[family-name:var(--font-script)] italic">Technologies</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive toolkit spanning machine learning, computational modeling, 
@@ -189,7 +215,7 @@ export function SkillsSection() {
             return (
               <motion.div
                 key={category.title}
-                className="group p-6 glass rounded-2xl hover:border-cyan/30 transition-all duration-300"
+                className="group p-6 glass rounded-2xl hover:border-pink-300 transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + categoryIndex * 0.1 }}
@@ -252,7 +278,7 @@ export function SkillsSection() {
               ].map((tool, index) => (
                 <span
                   key={`${tool}-${index}`}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground bg-secondary/50 border border-border/50 rounded-lg whitespace-nowrap hover:text-cyan hover:border-cyan/30 transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-pink-600 bg-pink-50 border border-pink-200 rounded-lg whitespace-nowrap hover:text-pink-700 hover:border-pink-300 transition-colors"
                 >
                   {tool}
                 </span>

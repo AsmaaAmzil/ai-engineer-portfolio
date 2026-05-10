@@ -53,11 +53,11 @@ export function Navigation() {
         <nav className="container mx-auto px-6 flex items-center justify-between">
           <motion.a
             href="#"
-            className="text-xl font-bold gradient-text"
+            className="text-xl font-bold gradient-text font-[family-name:var(--font-script)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            AA
+            Asmaa
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -68,7 +68,7 @@ export function Navigation() {
                 href={item.href}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors ${
                   activeSection === item.href.slice(1)
-                    ? "text-cyan"
+                    ? "text-pink-500"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
                 initial={{ opacity: 0, y: -20 }}
@@ -79,7 +79,7 @@ export function Navigation() {
                 {item.label}
                 {activeSection === item.href.slice(1) && (
                   <motion.div
-                    className="absolute bottom-0 left-1/2 w-1 h-1 rounded-full bg-cyan"
+                    className="absolute bottom-0 left-1/2 w-1 h-1 rounded-full bg-pink-400"
                     layoutId="activeNav"
                     style={{ x: "-50%" }}
                   />
@@ -91,7 +91,7 @@ export function Navigation() {
           {/* CTA Button */}
           <motion.a
             href="#contact"
-            className="hidden md:block px-5 py-2.5 text-sm font-medium bg-cyan/10 text-cyan border border-cyan/30 rounded-full hover:bg-cyan/20 hover:border-cyan/50 transition-all"
+            className="hidden md:block px-5 py-2.5 text-sm font-medium bg-pink-100 text-pink-600 border border-pink-300 rounded-full hover:bg-pink-200 hover:border-pink-400 transition-all"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6 }}
@@ -139,8 +139,8 @@ export function Navigation() {
                     href={item.href}
                     className={`px-4 py-3 text-lg font-medium rounded-lg transition-colors ${
                       activeSection === item.href.slice(1)
-                        ? "bg-cyan/10 text-cyan"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                        ? "bg-pink-100 text-pink-600"
+                        : "text-muted-foreground hover:text-foreground hover:bg-pink-50"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: -20 }}
@@ -152,7 +152,7 @@ export function Navigation() {
                 ))}
                 <motion.a
                   href="#contact"
-                  className="mt-4 px-4 py-3 text-center text-lg font-medium bg-cyan/10 text-cyan border border-cyan/30 rounded-lg"
+                  className="mt-4 px-4 py-3 text-center text-lg font-medium bg-pink-100 text-pink-600 border border-pink-300 rounded-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}

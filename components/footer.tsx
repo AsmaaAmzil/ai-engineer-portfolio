@@ -32,7 +32,7 @@ export function Footer() {
           <div className="space-y-4">
             <motion.a
               href="#"
-              className="inline-block text-2xl font-bold gradient-text"
+              className="inline-block text-2xl font-bold gradient-text font-[family-name:var(--font-script)]"
               whileHover={{ scale: 1.05 }}
             >
               Asmaa Amzil
@@ -48,7 +48,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 text-muted-foreground hover:text-cyan bg-secondary/50 rounded-lg border border-border/50 hover:border-cyan/30 transition-all"
+                  className="p-2.5 text-pink-600 hover:text-pink-700 bg-pink-50 rounded-lg border border-pink-200 hover:border-pink-300 transition-all"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label={social.label}
@@ -69,7 +69,7 @@ export function Footer() {
                 <li key={link.label}>
                   <motion.a
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-cyan transition-colors"
+                    className="text-sm text-muted-foreground hover:text-pink-600 transition-colors"
                     whileHover={{ x: 4 }}
                   >
                     {link.label}
@@ -88,13 +88,13 @@ export function Footer() {
               <p>Marrakech, Morocco</p>
               <a
                 href="mailto:asmaaamzil19@gmail.com"
-                className="block hover:text-cyan transition-colors"
+                className="block hover:text-pink-600 transition-colors"
               >
                 asmaaamzil19@gmail.com
               </a>
               <a
                 href="tel:+212680046270"
-                className="block hover:text-cyan transition-colors"
+                className="block hover:text-pink-600 transition-colors"
               >
                 +212 680046270
               </a>
@@ -109,13 +109,13 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-1 text-sm text-muted-foreground">
             <span>© {new Date().getFullYear()} Asmaa Amzil. Built with</span>
-            <Heart className="w-3.5 h-3.5 text-cyan mx-1" />
+            <Heart className="w-3.5 h-3.5 text-pink-500 mx-1 fill-pink-500" />
             <span>and caffeine.</span>
           </div>
 
           <motion.button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-cyan bg-secondary/50 rounded-full border border-border/50 hover:border-cyan/30 transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-pink-600 hover:text-pink-700 bg-pink-50 rounded-full border border-pink-200 hover:border-pink-300 transition-all"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -126,8 +126,8 @@ export function Footer() {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full blur-[100px] bg-cyan/5 pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-48 h-48 rounded-full blur-[80px] bg-purple/5 pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full blur-[100px] bg-pink-300/20 pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-48 h-48 rounded-full blur-[80px] bg-purple-300/20 pointer-events-none" />
     </footer>
   )
 }

@@ -4,62 +4,61 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.08 0.015 260);
-  --foreground: oklch(0.95 0.01 260);
-  --card: oklch(0.12 0.02 260);
-  --card-foreground: oklch(0.95 0.01 260);
-  --popover: oklch(0.1 0.02 260);
-  --popover-foreground: oklch(0.95 0.01 260);
-  --primary: oklch(0.75 0.18 195);
-  --primary-foreground: oklch(0.1 0.02 260);
-  --secondary: oklch(0.15 0.025 260);
-  --secondary-foreground: oklch(0.9 0.01 260);
-  --muted: oklch(0.18 0.02 260);
-  --muted-foreground: oklch(0.65 0.02 260);
-  --accent: oklch(0.65 0.2 280);
-  --accent-foreground: oklch(0.95 0.01 260);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.95 0.01 260);
-  --border: oklch(0.22 0.03 260);
-  --input: oklch(0.15 0.025 260);
-  --ring: oklch(0.75 0.18 195);
-  --radius: 0.75rem;
+  --background: #fef7f0;
+  --foreground: #5c4a5a;
+  --card: #ffffff;
+  --card-foreground: #5c4a5a;
+  --popover: #ffffff;
+  --popover-foreground: #5c4a5a;
+  --primary: #f9a8d4;
+  --primary-foreground: #7c2d5e;
+  --secondary: #e9d5ff;
+  --secondary-foreground: #6b21a8;
+  --muted: #fce7f3;
+  --muted-foreground: #9ca3af;
+  --accent: #bae6fd;
+  --accent-foreground: #0369a1;
+  --destructive: #fca5a5;
+  --destructive-foreground: #991b1b;
+  --border: #fbcfe8;
+  --input: #fbcfe8;
+  --ring: #f9a8d4;
+  --radius: 1rem;
   
-  /* Custom colors for futuristic theme */
-  --cyan: oklch(0.75 0.18 195);
-  --cyan-glow: oklch(0.8 0.2 195);
-  --purple: oklch(0.65 0.2 280);
-  --purple-glow: oklch(0.7 0.22 280);
-  --blue: oklch(0.6 0.18 250);
-  --glass: oklch(0.12 0.02 260 / 0.6);
-  --glass-border: oklch(0.3 0.03 260 / 0.3);
+  /* Soft pastel accent colors */
+  --rose-soft: #fecdd3;
+  --lavender: #e9d5ff;
+  --mint: #bbf7d0;
+  --peach: #fed7aa;
+  --cream: #fef7f0;
 }
 
 .dark {
-  --background: oklch(0.08 0.015 260);
-  --foreground: oklch(0.95 0.01 260);
-  --card: oklch(0.12 0.02 260);
-  --card-foreground: oklch(0.95 0.01 260);
-  --popover: oklch(0.1 0.02 260);
-  --popover-foreground: oklch(0.95 0.01 260);
-  --primary: oklch(0.75 0.18 195);
-  --primary-foreground: oklch(0.1 0.02 260);
-  --secondary: oklch(0.15 0.025 260);
-  --secondary-foreground: oklch(0.9 0.01 260);
-  --muted: oklch(0.18 0.02 260);
-  --muted-foreground: oklch(0.65 0.02 260);
-  --accent: oklch(0.65 0.2 280);
-  --accent-foreground: oklch(0.95 0.01 260);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.95 0.01 260);
-  --border: oklch(0.22 0.03 260);
-  --input: oklch(0.15 0.025 260);
-  --ring: oklch(0.75 0.18 195);
+  --background: #2d1f2f;
+  --foreground: #fce7f3;
+  --card: #3d2b3d;
+  --card-foreground: #fce7f3;
+  --popover: #3d2b3d;
+  --popover-foreground: #fce7f3;
+  --primary: #f472b6;
+  --primary-foreground: #831843;
+  --secondary: #a855f7;
+  --secondary-foreground: #fef3ff;
+  --muted: #4a354a;
+  --muted-foreground: #d8b4d8;
+  --accent: #7dd3fc;
+  --accent-foreground: #0c4a6e;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: #5c4a5a;
+  --input: #5c4a5a;
+  --ring: #f472b6;
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Geist', 'Geist Fallback', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --font-sans: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-script: 'Dancing Script', 'Great Vibes', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -79,13 +78,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-cyan: var(--cyan);
-  --color-cyan-glow: var(--cyan-glow);
-  --color-purple: var(--purple);
-  --color-purple-glow: var(--purple-glow);
-  --color-blue: var(--blue);
-  --color-glass: var(--glass);
-  --color-glass-border: var(--glass-border);
+  --color-rose-soft: var(--rose-soft);
+  --color-lavender: var(--lavender);
+  --color-mint: var(--mint);
+  --color-peach: var(--peach);
+  --color-cream: var(--cream);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -104,98 +101,84 @@
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - soft pink theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: oklch(0.1 0.02 260);
+  background: #fce7f3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.25 0.03 260);
+  background: #f9a8d4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.35 0.04 260);
+  background: #f472b6;
 }
 
-/* Glassmorphism utilities */
+/* Soft feminine glassmorphism */
 .glass {
-  background: oklch(0.12 0.02 260 / 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
-  border: 1px solid oklch(0.3 0.03 260 / 0.3);
+  border: 1px solid rgba(251, 207, 232, 0.5);
 }
 
 .glass-strong {
-  background: oklch(0.14 0.02 260 / 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(30px);
-  border: 1px solid oklch(0.35 0.03 260 / 0.4);
+  border: 1px solid rgba(251, 207, 232, 0.6);
 }
 
-/* Glow effects */
-.glow-cyan {
-  box-shadow: 0 0 20px oklch(0.75 0.18 195 / 0.3),
-              0 0 40px oklch(0.75 0.18 195 / 0.15),
-              0 0 60px oklch(0.75 0.18 195 / 0.1);
+/* Soft feminine glow effects */
+.glow-pink {
+  box-shadow: 0 0 20px rgba(249, 168, 212, 0.4),
+              0 0 40px rgba(249, 168, 212, 0.2),
+              0 0 60px rgba(249, 168, 212, 0.1);
 }
 
-.glow-purple {
-  box-shadow: 0 0 20px oklch(0.65 0.2 280 / 0.3),
-              0 0 40px oklch(0.65 0.2 280 / 0.15),
-              0 0 60px oklch(0.65 0.2 280 / 0.1);
+.glow-lavender {
+  box-shadow: 0 0 20px rgba(233, 213, 255, 0.4),
+              0 0 40px rgba(233, 213, 255, 0.2),
+              0 0 60px rgba(233, 213, 255, 0.1);
 }
 
-.text-glow-cyan {
-  text-shadow: 0 0 10px oklch(0.75 0.18 195 / 0.5),
-               0 0 20px oklch(0.75 0.18 195 / 0.3),
-               0 0 30px oklch(0.75 0.18 195 / 0.2);
+.text-glow-pink {
+  text-shadow: 0 0 10px rgba(249, 168, 212, 0.5),
+               0 0 20px rgba(249, 168, 212, 0.3),
+               0 0 30px rgba(249, 168, 212, 0.2);
 }
 
-.text-glow-purple {
-  text-shadow: 0 0 10px oklch(0.65 0.2 280 / 0.5),
-               0 0 20px oklch(0.65 0.2 280 / 0.3),
-               0 0 30px oklch(0.65 0.2 280 / 0.2);
+/* Soft gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg, #fef7f0 0%, #fce7f3 50%, #e9d5ff 100%);
 }
 
-/* Grid background */
-.grid-bg {
-  background-image: 
-    linear-gradient(oklch(0.2 0.02 260 / 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.2 0.02 260 / 0.3) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Gradient text */
+/* Feminine gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, oklch(0.75 0.18 195) 0%, oklch(0.65 0.2 280) 100%);
+  background: linear-gradient(135deg, #f9a8d4 0%, #c4b5fd 50%, #7dd3fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Animated gradient border */
-@keyframes gradient-rotate {
-  0% { --angle: 0deg; }
-  100% { --angle: 360deg; }
-}
-
+/* Soft pastel gradient border */
 .gradient-border {
   position: relative;
-  background: oklch(0.12 0.02 260);
+  background: white;
   border-radius: var(--radius);
 }
 
 .gradient-border::before {
   content: '';
   position: absolute;
-  inset: -1px;
-  border-radius: calc(var(--radius) + 1px);
-  background: linear-gradient(135deg, oklch(0.75 0.18 195), oklch(0.65 0.2 280), oklch(0.6 0.18 250));
+  inset: -2px;
+  border-radius: calc(var(--radius) + 2px);
+  background: linear-gradient(135deg, #f9a8d4, #e9d5ff, #bae6fd);
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 /* Noise texture overlay */
@@ -213,8 +196,8 @@
   z-index: 1;
 }
 
-/* Selection styling */
+/* Selection styling - pink */
 ::selection {
-  background: oklch(0.75 0.18 195 / 0.3);
-  color: oklch(0.95 0.01 260);
+  background: rgba(249, 168, 212, 0.4);
+  color: #7c2d5e;
 }
