@@ -15,24 +15,31 @@ import {
 } from "lucide-react"
 
 // Skills organized by expertise level (no percentages)
+// Lavender-inspired expertise levels
 const expertiseLevels = {
   expert: {
     label: "Expert",
-    color: "bg-violet-500",
-    glow: "shadow-violet-400/50",
-    border: "border-violet-400",
+    dot: "bg-gradient-to-br from-violet-400 to-purple-500",
+    badge: "bg-gradient-to-r from-violet-100/80 to-purple-100/80",
+    border: "border-violet-300/60",
+    glow: "shadow-violet-200/50",
+    text: "text-violet-800",
   },
   advanced: {
     label: "Advanced",
-    color: "bg-purple-500",
-    glow: "shadow-purple-400/50",
-    border: "border-purple-400",
+    dot: "bg-gradient-to-br from-purple-400 to-violet-500",
+    badge: "bg-gradient-to-r from-purple-100/60 to-violet-100/60",
+    border: "border-purple-300/50",
+    glow: "shadow-purple-200/40",
+    text: "text-purple-800",
   },
   proficient: {
     label: "Proficient",
-    color: "bg-violet-400",
-    glow: "shadow-violet-300/50",
-    border: "border-violet-300",
+    dot: "bg-gradient-to-br from-violet-300 to-purple-400",
+    badge: "bg-gradient-to-r from-violet-50/80 to-purple-50/80",
+    border: "border-violet-200/50",
+    glow: "shadow-violet-100/30",
+    text: "text-violet-700",
   },
 }
 
@@ -168,7 +175,7 @@ export function SkillsSection() {
                 <h3 className="font-semibold text-foreground text-sm">{category.title}</h3>
               </div>
 
-              {/* Skills Cloud - Hexagon Tiles */}
+              {/* Skills Cloud - Lavender Petals */}
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => {
                   const levelStyle = getLevelStyle(skill.level)
@@ -179,35 +186,38 @@ export function SkillsSection() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.03 }}
-                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileHover={{ scale: 1.08, y: -3 }}
                     >
-                      {/* Skill Badge with expertise indicator */}
+                      {/* Skill Badge - Lavender petal style */}
                       <div className={`
-                        relative px-3 py-1.5 text-xs font-medium rounded-lg
-                        bg-secondary/50 border border-border/50
-                        hover:border-violet-300 hover:bg-violet-50/50
+                        relative px-4 py-2 text-xs font-medium rounded-full
+                        ${levelStyle.badge} border ${levelStyle.border}
+                        hover:shadow-lg hover:${levelStyle.glow}
+                        hover:border-violet-300
                         transition-all duration-300 cursor-default
-                        group/skill
+                        group/skill backdrop-blur-sm
                       `}>
                         <div className="flex items-center gap-2">
-                          {/* Expertise dot indicator */}
+                          {/* Glowing lavender dot */}
                           <motion.div
                             className={`
-                              w-2 h-2 rounded-full ${levelStyle.color}
-                              shadow-[0_0_8px_rgba(139,92,246,0.5)]
+                              w-2 h-2 rounded-full ${levelStyle.dot}
+                              shadow-[0_0_10px_rgba(139,92,246,0.6)]
+                              group-hover/skill:shadow-[0_0_15px_rgba(139,92,246,0.8)]
+                              transition-shadow duration-300
                             `}
                             initial={{ scale: 0 }}
                             animate={isInView ? { scale: 1 } : {}}
                             transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.03, type: "spring" }}
                           />
-                          <span className="text-foreground/90 group-hover/skill:text-violet-700 transition-colors">
+                          <span className={`${levelStyle.text} group-hover/skill:text-violet-900 transition-colors`}>
                             {skill.name}
                           </span>
                         </div>
                         
-                        {/* Hover tooltip with level */}
-                        <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-200 pointer-events-none">
-                          <div className="px-2 py-1 bg-violet-500 text-white text-[10px] rounded whitespace-nowrap shadow-lg">
+                        {/* Lavender tooltip */}
+                        <div className="absolute -top-9 left-1/2 -translate-x-1/2 opacity-0 group-hover/skill:opacity-100 transition-all duration-300 pointer-events-none z-10">
+                          <div className="px-3 py-1.5 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-[10px] font-medium rounded-full whitespace-nowrap shadow-lg shadow-violet-300/50">
                             {levelStyle.label}
                           </div>
                           <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-violet-500 mx-auto" />
