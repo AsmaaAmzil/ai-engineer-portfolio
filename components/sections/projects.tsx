@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { ArrowUpRight, Github, ExternalLink, Brain, Cpu, FlaskConical, Zap, Database, Activity } from "lucide-react"
+import { ArrowUpRight, Lock, Send, X, Brain, Cpu, FlaskConical, Zap, Database, Activity } from "lucide-react"
 
 const projects = [
   {
@@ -130,9 +130,40 @@ export function ProjectsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<string>("")
+  const [requestForm, setRequestForm] = useState({ name: "", email: "", message: "" })
+  const [isRequestSent, setIsRequestSent] = useState(false)
 
-  const featuredProject = projects.find(p => p.featured)
-  const otherProjects = projects.filter(p => !p.featured)
+  const featuredProject = projects.find((p) => p.featured)
+  const otherProjects = projects.filter((p) => !p.featured)
+
+  const handleRequestClick = (projectTitle: string) => {
+    setSelectedProject(projectTitle)
+    setIsRequestModalOpen(true)
+    setIsRequestSent(false)
+    setRequestForm({ name: "", email: "", message: "" })
+  }
+
+  const handleRequestSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Create mailto link with the request details
+    const subject = encodeURIComponent(`Project Access Request: ${selectedProject}`)
+    const body = encodeURIComponent(
+      `Hi Asmaa,\n\n` +
+      `I'd like to request access to view your project "${selectedProject}".\n\n` +
+      `My Details:\n` +
+      `Name: ${requestForm.name}\n` +
+      `Email: ${requestForm.email}\n\n` +
+      `Purpose/Context:\n${requestForm.message || "I'd like to learn more about this project."}\n\n` +
+      `Best regards,\n${requestForm.name}`
+    )
+    window.location.href = `mailto:asmaaamzil19@gmail.com?subject=${subject}&body=${body}`
+    setIsRequestSent(true)
+    setTimeout(() => {
+      setIsRequestModalOpen(false)
+    }, 2000)
+  }
 
   return (
     <section id="projects" className="relative py-20 md:py-24 overflow-hidden" ref={ref}>
@@ -203,26 +234,19 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex items-center gap-4 pt-4">
-                    <motion.a
-                      href={featuredProject.github}
+                    <motion.button
+                      onClick={() => handleRequestClick(featuredProject.title)}
                       className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-violet-500 text-white rounded-full hover:bg-violet-600 transition-all"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Github className="w-4 h-4" />
-                      View Code
-                    </motion.a>
-                    {featuredProject.demo && (
-                      <motion.a
-                        href={featuredProject.demo}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-foreground bg-secondary border border-border rounded-full hover:bg-muted transition-all"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
-                      </motion.a>
-                    )}
+                      <Lock className="w-4 h-4" />
+                      Request Access
+                    </motion.button>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Lock className="w-3 h-3" />
+                      <span>Private Project</span>
+                    </div>
                   </div>
                 </div>
 
@@ -268,13 +292,14 @@ export function ProjectsSection() {
                   <div className={`w-10 h-10 rounded-xl ${colors.bg} ${colors.border} border flex items-center justify-center`}>
                     <project.icon className={`w-5 h-5 ${colors.text}`} />
                   </div>
-                  <motion.a
-                    href={project.github}
-                    className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                  <motion.button
+                    onClick={() => handleRequestClick(project.title)}
+                    className="p-2 text-violet-600 hover:text-violet-700 hover:bg-violet-100 rounded-lg transition-colors"
                     whileHover={{ scale: 1.1 }}
+                    title="Request Access"
                   >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </motion.a>
+                    <Lock className="w-4 h-4" />
+                  </motion.button>
                 </div>
 
                 {/* Content */}
@@ -322,25 +347,111 @@ export function ProjectsSection() {
           })}
         </div>
 
-        {/* View All Link */}
+        {/* Private Repository Note */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 1 }}
         >
-          <motion.a
-            href="https://github.com/AsmaaAmzil"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-muted-foreground hover:text-violet-600 transition-colors"
-            whileHover={{ x: 5 }}
-          >
-            View all projects on GitHub
-            <ArrowUpRight className="w-4 h-4" />
-          </motion.a>
+          <div className="inline-flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground bg-secondary/50 border border-border/50 rounded-full">
+            <Lock className="w-3.5 h-3.5" />
+            Projects are in private repositories — request access to view code
+          </div>
         </motion.div>
       </div>
+
+      {/* Request Access Modal */}
+      {isRequestModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <motion.div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            onClick={() => setIsRequestModalOpen(false)}
+          />
+          <motion.div
+            className="relative w-full max-w-md glass rounded-2xl border border-violet-200 shadow-xl overflow-hidden"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-border/50">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">Request Access</h3>
+                <p className="text-sm text-muted-foreground mt-0.5">{selectedProject}</p>
+              </div>
+              <button
+                onClick={() => setIsRequestModalOpen(false)}
+                className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Form */}
+            {!isRequestSent ? (
+              <form onSubmit={handleRequestSubmit} className="p-6 space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={requestForm.name}
+                    onChange={(e) => setRequestForm({ ...requestForm, name: e.target.value })}
+                    className="w-full px-4 py-2.5 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-violet-300 focus:ring-1 focus:ring-violet-300 transition-all text-foreground placeholder:text-muted-foreground"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={requestForm.email}
+                    onChange={(e) => setRequestForm({ ...requestForm, email: e.target.value })}
+                    className="w-full px-4 py-2.5 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-violet-300 focus:ring-1 focus:ring-violet-300 transition-all text-foreground placeholder:text-muted-foreground"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                    Purpose / Message (Optional)
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={requestForm.message}
+                    onChange={(e) => setRequestForm({ ...requestForm, message: e.target.value })}
+                    className="w-full px-4 py-2.5 text-sm bg-secondary/50 border border-border rounded-xl focus:outline-none focus:border-violet-300 focus:ring-1 focus:ring-violet-300 transition-all resize-none text-foreground placeholder:text-muted-foreground"
+                    placeholder="I'm interested in this project for..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold bg-violet-500 text-white rounded-xl hover:bg-violet-600 transition-all"
+                >
+                  <Send className="w-4 h-4" />
+                  Send Request
+                </button>
+              </form>
+            ) : (
+              <div className="p-6 text-center">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 flex items-center justify-center">
+                  <Send className="w-6 h-6 text-emerald-600" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Request Sent!</h4>
+                <p className="text-sm text-muted-foreground">
+                  An email has been prepared. Check your email client to send it.
+                </p>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      )}
     </section>
   )
 }
