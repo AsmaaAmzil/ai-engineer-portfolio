@@ -14,166 +14,107 @@ import {
   Layers
 } from "lucide-react"
 
+// Skills organized by expertise level (no percentages)
+const expertiseLevels = {
+  expert: {
+    label: "Expert",
+    color: "bg-violet-500",
+    glow: "shadow-violet-400/50",
+    border: "border-violet-400",
+  },
+  advanced: {
+    label: "Advanced",
+    color: "bg-purple-500",
+    glow: "shadow-purple-400/50",
+    border: "border-purple-400",
+  },
+  proficient: {
+    label: "Proficient",
+    color: "bg-violet-400",
+    glow: "shadow-violet-300/50",
+    border: "border-violet-300",
+  },
+}
+
 const skillCategories = [
   {
     title: "AI / Machine Learning",
     icon: Brain,
-    color: "pink",
     skills: [
-      { name: "Deep Learning", level: 95 },
-      { name: "Reinforcement Learning", level: 90 },
-      { name: "Explainable AI (SHAP, Grad-CAM)", level: 88 },
-      { name: "Sequential / Time Series", level: 85 },
-      { name: "Recommendation Systems", level: 82 },
+      { name: "Deep Learning", level: "expert" },
+      { name: "Reinforcement Learning", level: "advanced" },
+      { name: "Explainable AI", level: "advanced" },
+      { name: "Sequential / Time Series", level: "advanced" },
+      { name: "Recommendation Systems", level: "proficient" },
+      { name: "Multi-Agent Systems", level: "expert" },
+      { name: "Transformer Models", level: "advanced" },
     ],
   },
   {
-    title: "NLP & Transformers",
-    icon: FileCode,
-    color: "lavender",
-    skills: [
-      { name: "Transformers / BERT", level: 92 },
-      { name: "Clinical NER", level: 88 },
-      { name: "BioBERT / PubMedBERT", level: 85 },
-      { name: "Text Classification", level: 90 },
-      { name: "Sequence Modeling", level: 87 },
-    ],
-  },
-  {
-    title: "Multi-Agent Systems",
-    icon: Network,
-    color: "sky",
-    skills: [
-      { name: "Agent-Based Modeling", level: 93 },
-      { name: "Emergent Behavior Analysis", level: 88 },
-      { name: "Threshold Dynamics", level: 85 },
-      { name: "Network Analysis", level: 82 },
-      { name: "Simulation-Based Inference", level: 80 },
-    ],
-  },
-  {
-    title: "Computer Vision",
+    title: "Computer Vision & NLP",
     icon: Layers,
-    color: "rose",
     skills: [
-      { name: "CNNs / EfficientNet", level: 90 },
-      { name: "Image Classification", level: 92 },
-      { name: "Medical Imaging", level: 85 },
-      { name: "Grad-CAM / LIME", level: 88 },
-      { name: "Edge AI Deployment", level: 78 },
+      { name: "CNN / EfficientNet", level: "advanced" },
+      { name: "Medical Imaging", level: "advanced" },
+      { name: "Grad-CAM / LIME", level: "advanced" },
+      { name: "BERT / BioBERT", level: "advanced" },
+      { name: "Clinical NER", level: "proficient" },
+      { name: "Text Classification", level: "advanced" },
+      { name: "Edge AI Deployment", level: "proficient" },
     ],
   },
   {
     title: "Frameworks & Tools",
     icon: Code2,
-    color: "violet",
     skills: [
-      { name: "PyTorch", level: 95 },
-      { name: "TensorFlow", level: 88 },
-      { name: "scikit-learn", level: 92 },
-      { name: "pandas / NumPy", level: 95 },
-      { name: "FastAPI", level: 85 },
+      { name: "PyTorch", level: "expert" },
+      { name: "TensorFlow", level: "advanced" },
+      { name: "scikit-learn", level: "advanced" },
+      { name: "pandas / NumPy", level: "expert" },
+      { name: "FastAPI", level: "advanced" },
+      { name: "Hugging Face", level: "advanced" },
+      { name: "spaCy", level: "proficient" },
     ],
   },
   {
-    title: "MLOps & Cloud",
+    title: "MLOps & Infrastructure",
     icon: Cloud,
-    color: "mint",
     skills: [
-      { name: "Docker", level: 88 },
-      { name: "DVC", level: 85 },
-      { name: "Kubeflow", level: 78 },
-      { name: "ONNX", level: 75 },
-      { name: "Distributed Training", level: 82 },
+      { name: "Docker", level: "advanced" },
+      { name: "DVC", level: "advanced" },
+      { name: "Kubeflow", level: "proficient" },
+      { name: "ONNX", level: "proficient" },
+      { name: "Distributed Training", level: "advanced" },
+      { name: "Git", level: "expert" },
     ],
   },
   {
     title: "Programming",
     icon: Cpu,
-    color: "peach",
     skills: [
-      { name: "Python", level: 98 },
-      { name: "C++", level: 75 },
-      { name: "R", level: 70 },
-      { name: "SQL", level: 82 },
-      { name: "JavaScript / React", level: 78 },
+      { name: "Python", level: "expert" },
+      { name: "C++", level: "proficient" },
+      { name: "SQL", level: "advanced" },
+      { name: "JavaScript / React", level: "proficient" },
+      { name: "R", level: "proficient" },
+      { name: "Bash / Linux", level: "advanced" },
     ],
   },
   {
     title: "Research & Data",
     icon: FlaskConical,
-    color: "orchid",
     skills: [
-      { name: "Experimental Design", level: 90 },
-      { name: "Statistical Analysis", level: 88 },
-      { name: "Data Visualization", level: 85 },
-      { name: "Scientific Writing", level: 88 },
-      { name: "Reproducible Research", level: 90 },
+      { name: "Experimental Design", level: "advanced" },
+      { name: "Statistical Analysis", level: "advanced" },
+      { name: "Scientific Writing", level: "advanced" },
+      { name: "Data Visualization", level: "advanced" },
+      { name: "Reproducible Research", level: "advanced" },
     ],
   },
 ]
 
-const getColorClasses = (color: string) => {
-  switch (color) {
-    case "pink":
-      return {
-        bg: "bg-violet-100",
-        border: "border-violet-200",
-        text: "text-violet-600",
-        gradient: "from-violet-400 to-violet-300",
-        glow: "shadow-violet-200",
-      }
-    case "lavender":
-    case "violet":
-    case "orchid":
-      return {
-        bg: "bg-purple-100",
-        border: "border-purple-200",
-        text: "text-purple-600",
-        gradient: "from-purple-400 to-purple-300",
-        glow: "shadow-purple-200",
-      }
-    case "sky":
-      return {
-        bg: "bg-violet-100",
-        border: "border-violet-200",
-        text: "text-violet-600",
-        gradient: "from-violet-400 to-violet-300",
-        glow: "shadow-violet-200",
-      }
-    case "rose":
-      return {
-        bg: "bg-purple-100",
-        border: "border-purple-200",
-        text: "text-purple-600",
-        gradient: "from-purple-400 to-purple-300",
-        glow: "shadow-purple-200",
-      }
-    case "mint":
-      return {
-        bg: "bg-violet-100",
-        border: "border-violet-200",
-        text: "text-violet-600",
-        gradient: "from-violet-400 to-violet-300",
-        glow: "shadow-violet-200",
-      }
-    case "peach":
-      return {
-        bg: "bg-purple-100",
-        border: "border-purple-200",
-        text: "text-purple-600",
-        gradient: "from-purple-400 to-purple-300",
-        glow: "shadow-purple-200",
-      }
-    default:
-      return {
-        bg: "bg-violet-100",
-        border: "border-violet-200",
-        text: "text-violet-600",
-        gradient: "from-violet-400 to-violet-300",
-        glow: "shadow-violet-200",
-      }
-  }
+const getLevelStyle = (level: string) => {
+  return expertiseLevels[level as keyof typeof expertiseLevels] || expertiseLevels.proficient
 }
 
 export function SkillsSection() {
@@ -208,54 +149,76 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, categoryIndex) => {
-            const colors = getColorClasses(category.color)
-            return (
-              <motion.div
-                key={category.title}
-                className="group p-5 glass rounded-xl hover:border-violet-300 transition-all duration-300 hover:shadow-md"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + categoryIndex * 0.1 }}
-                whileHover={{ y: -4 }}
-              >
-                {/* Category Header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-10 h-10 rounded-xl ${colors.bg} border ${colors.border} flex items-center justify-center`}>
-                    <category.icon className={`w-5 h-5 ${colors.text}`} />
-                  </div>
-                  <h3 className="font-semibold text-foreground text-sm">{category.title}</h3>
+        {/* Skills Grid - Honeycomb Style */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.title}
+              className="group p-5 glass rounded-xl hover:border-violet-300 transition-all duration-300 hover:shadow-md"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 + categoryIndex * 0.1 }}
+              whileHover={{ y: -4 }}
+            >
+              {/* Category Header */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center">
+                  <category.icon className="w-5 h-5 text-violet-600" />
                 </div>
+                <h3 className="font-semibold text-foreground text-sm">{category.title}</h3>
+              </div>
 
-                {/* Skills List */}
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
+              {/* Skills Cloud - Hexagon Tiles */}
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, skillIndex) => {
+                  const levelStyle = getLevelStyle(skill.level)
+                  return (
                     <motion.div
                       key={skill.name}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: 0.4 + categoryIndex * 0.1 + skillIndex * 0.05 }}
+                      className="relative"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.03 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
                     >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-sm text-muted-foreground">{skill.name}</span>
-                        <span className={`text-xs font-medium ${colors.text}`}>{skill.level}%</span>
-                      </div>
-                      <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                        <motion.div
-                          className={`h-full rounded-full bg-gradient-to-r ${colors.gradient}`}
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${skill.level}%` } : {}}
-                          transition={{ duration: 1, delay: 0.6 + categoryIndex * 0.1 + skillIndex * 0.05 }}
-                        />
+                      {/* Skill Badge with expertise indicator */}
+                      <div className={`
+                        relative px-3 py-1.5 text-xs font-medium rounded-lg
+                        bg-secondary/50 border border-border/50
+                        hover:border-violet-300 hover:bg-violet-50/50
+                        transition-all duration-300 cursor-default
+                        group/skill
+                      `}>
+                        <div className="flex items-center gap-2">
+                          {/* Expertise dot indicator */}
+                          <motion.div
+                            className={`
+                              w-2 h-2 rounded-full ${levelStyle.color}
+                              shadow-[0_0_8px_rgba(139,92,246,0.5)]
+                            `}
+                            initial={{ scale: 0 }}
+                            animate={isInView ? { scale: 1 } : {}}
+                            transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.03, type: "spring" }}
+                          />
+                          <span className="text-foreground/90 group-hover/skill:text-violet-700 transition-colors">
+                            {skill.name}
+                          </span>
+                        </div>
+                        
+                        {/* Hover tooltip with level */}
+                        <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-200 pointer-events-none">
+                          <div className="px-2 py-1 bg-violet-500 text-white text-[10px] rounded whitespace-nowrap shadow-lg">
+                            {levelStyle.label}
+                          </div>
+                          <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-violet-500 mx-auto" />
+                        </div>
                       </div>
                     </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            )
-          })}
+                  )
+                })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Tools Marquee */}
