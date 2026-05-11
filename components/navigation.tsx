@@ -53,11 +53,34 @@ export function Navigation() {
         <nav className="container mx-auto px-6 flex items-center justify-between">
           <motion.a
             href="#"
-            className="pl-4 text-3xl font-bold gradient-text font-[family-name:var(--font-script)] whitespace-nowrap"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-3 pl-4"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            Asmaa Amzil
+            {/* Monogram AA */}
+            <div className="relative">
+              <span className="text-4xl font-bold gradient-text font-[family-name:var(--font-script)] leading-none">
+                A
+              </span>
+              <span className="absolute -bottom-1 left-3 text-2xl font-bold gradient-text font-[family-name:var(--font-script)] leading-none">
+                a
+              </span>
+              {/* Sparkle decoration */}
+              <div className="absolute -top-1 -right-2 w-2 h-2 bg-violet-400 rounded-full opacity-60" />
+            </div>
+            
+            {/* Divider */}
+            <div className="h-10 w-px bg-gradient-to-b from-violet-300 via-violet-400 to-violet-300 mx-1" />
+            
+            {/* Name and tagline */}
+            <div className="flex flex-col">
+              <span className="text-lg font-semibold text-foreground tracking-tight">
+                Asmaa Amzil
+              </span>
+              <span className="text-[10px] text-muted-foreground tracking-widest uppercase">
+                AI Engineer
+              </span>
+            </div>
           </motion.a>
 
           {/* Desktop Navigation */}
