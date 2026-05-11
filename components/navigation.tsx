@@ -58,7 +58,7 @@ export function Navigation() {
             whileTap={{ scale: 0.95 }}
           >
             <span>Asmaa</span>
-            <span className="text-base opacity-80">Amzil</span>
+            <span className="text-base">Amzil</span>
           </motion.a>
 
           {/* Desktop Navigation */}
