@@ -53,12 +53,12 @@ export function Navigation() {
         <nav className="container mx-auto px-6 flex items-center justify-between">
           <motion.a
             href="#"
-            className="flex flex-col items-center text-xl font-bold gradient-text font-[family-name:var(--font-script)] leading-none"
+            className="flex items-baseline gap-1 text-lg font-bold gradient-text font-[family-name:var(--font-script)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span>Asmaa</span>
-            <span className="text-lg opacity-80">Amzil</span>
+            <span className="text-base opacity-80">Amzil</span>
           </motion.a>
 
           {/* Desktop Navigation */}
