@@ -175,52 +175,39 @@ export function SkillsSection() {
                 <h3 className="font-semibold text-foreground text-sm">{category.title}</h3>
               </div>
 
-              {/* Skills Cloud - Lavender Petals */}
-              <div className="flex flex-wrap gap-2">
+              {/* Skills Grid - Uniform Cards */}
+              <div className="grid grid-cols-2 gap-2">
                 {category.skills.map((skill, skillIndex) => {
                   const levelStyle = getLevelStyle(skill.level)
                   return (
                     <motion.div
                       key={skill.name}
                       className="relative"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.03 }}
-                      whileHover={{ scale: 1.08, y: -3 }}
+                      whileHover={{ y: -2 }}
                     >
-                      {/* Skill Badge - Lavender petal style */}
+                      {/* Skill Card - Clean uniform style */}
                       <div className={`
-                        relative px-4 py-2 text-xs font-medium rounded-full
+                        w-full h-full px-3 py-2.5 text-xs font-medium rounded-lg
                         ${levelStyle.badge} border ${levelStyle.border}
-                        hover:shadow-lg hover:${levelStyle.glow}
+                        hover:shadow-md hover:${levelStyle.glow}
                         hover:border-violet-300
                         transition-all duration-300 cursor-default
                         group/skill backdrop-blur-sm
+                        flex items-center justify-center text-center
                       `}>
-                        <div className="flex items-center gap-2">
-                          {/* Glowing lavender dot */}
-                          <motion.div
-                            className={`
-                              w-2 h-2 rounded-full ${levelStyle.dot}
-                              shadow-[0_0_10px_rgba(139,92,246,0.6)]
-                              group-hover/skill:shadow-[0_0_15px_rgba(139,92,246,0.8)]
-                              transition-shadow duration-300
-                            `}
-                            initial={{ scale: 0 }}
-                            animate={isInView ? { scale: 1 } : {}}
-                            transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.03, type: "spring" }}
-                          />
-                          <span className={`${levelStyle.text} group-hover/skill:text-violet-900 transition-colors`}>
-                            {skill.name}
-                          </span>
-                        </div>
+                        <span className={`${levelStyle.text} group-hover/skill:text-violet-900 transition-colors line-clamp-2`}>
+                          {skill.name}
+                        </span>
                         
-                        {/* Lavender tooltip */}
-                        <div className="absolute -top-9 left-1/2 -translate-x-1/2 opacity-0 group-hover/skill:opacity-100 transition-all duration-300 pointer-events-none z-10">
-                          <div className="px-3 py-1.5 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-[10px] font-medium rounded-full whitespace-nowrap shadow-lg shadow-violet-300/50">
+                        {/* Hover tooltip with level */}
+                        <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/skill:opacity-100 transition-all duration-300 pointer-events-none z-10">
+                          <div className="px-2.5 py-1 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-[10px] font-medium rounded-full whitespace-nowrap shadow-lg shadow-violet-300/50">
                             {levelStyle.label}
                           </div>
-                          <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-violet-500 mx-auto" />
+                          <div className="w-0 h-0 border-l-3 border-r-3 border-t-3 border-transparent border-t-violet-500 mx-auto" />
                         </div>
                       </div>
                     </motion.div>
