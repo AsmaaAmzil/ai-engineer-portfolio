@@ -24,7 +24,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-sm font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
+            className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-medium text-violet-600 bg-violet-100 border border-violet-200 rounded-full"
           >
             <Sparkles className="w-4 h-4" />
             <span>Open to Research & Engineering Opportunities</span>
@@ -32,7 +32,7 @@ export function HeroSection() {
 
           {/* Main Heading with Script Font */}
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-5"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -46,7 +46,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed"
+            className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -60,14 +60,14 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-4 mb-16"
+            className="flex flex-wrap items-center justify-center gap-3 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.a
               href="#projects"
-              className="group inline-flex items-center gap-2 px-6 py-3 text-base font-semibold bg-gradient-to-r from-violet-400 to-violet-500 text-white rounded-full hover:from-violet-500 hover:to-violet-600 transition-all shadow-md shadow-violet-200"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-violet-400 to-violet-500 text-white rounded-full hover:from-violet-500 hover:to-violet-600 transition-all shadow-md shadow-violet-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -76,7 +76,7 @@ export function HeroSection() {
             </motion.a>
             <motion.a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold bg-white text-violet-600 border border-violet-200 rounded-full hover:bg-violet-50 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-white text-violet-600 border border-violet-200 rounded-full hover:bg-violet-50 transition-all shadow-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -87,7 +87,7 @@ export function HeroSection() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold bg-gradient-to-r from-purple-400 to-purple-500 text-white rounded-full hover:from-purple-500 hover:to-purple-600 transition-all shadow-lg shadow-purple-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-purple-400 to-purple-500 text-white rounded-full hover:from-purple-500 hover:to-purple-600 transition-all shadow-lg shadow-purple-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -98,7 +98,7 @@ export function HeroSection() {
 
           {/* Social Links */}
           <motion.div
-            className="flex items-center justify-center gap-4 mb-16"
+            className="flex items-center justify-center gap-3 mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -135,7 +135,7 @@ export function HeroSection() {
 
           {/* Floating Tech Badges */}
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-3"
+            className="flex flex-wrap items-center justify-center gap-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -143,7 +143,7 @@ export function HeroSection() {
             {techBadges.map((badge, index) => (
               <motion.span
                 key={badge}
-                className="px-3 py-1.5 text-xs font-medium text-muted-foreground bg-secondary/50 border border-border/50 rounded-full"
+                className="px-2.5 py-1 text-[10px] font-medium text-muted-foreground bg-secondary/50 border border-border/50 rounded-full"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1 + index * 0.1 }}
